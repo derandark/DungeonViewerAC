@@ -69,8 +69,12 @@ void PrefDialog::LoadSettings()
         RenderPreferences::RenderObjects ? BST_CHECKED : BST_UNCHECKED, 0);
     SendMessage(GetDlgItem(m_hWnd, IDC_RENDERLIGHTS), BM_SETCHECK, 
         RenderPreferences::RenderLights ? BST_CHECKED : BST_UNCHECKED, 0);
+	SendMessage(GetDlgItem(m_hWnd, IDC_FULLBRIGHT), BM_SETCHECK,
+		RenderPreferences::RenderFullbrightOutsideCells ? BST_CHECKED : BST_UNCHECKED, 0);
     SendMessage(GetDlgItem(m_hWnd, IDC_NOSLEEP), BM_SETCHECK, 
         RenderPreferences::NoSleep ? BST_CHECKED : BST_UNCHECKED, 0);
+	SendMessage(GetDlgItem(m_hWnd, IDC_LIGHTMOD), TBM_SETRANGE, TRUE, MAKELONG(0, 100));
+	SendMessage(GetDlgItem(m_hWnd, IDC_LIGHTMOD), TBM_SETPOS, TRUE, RenderPreferences::LightMod);
 
     // Filling options.
     SendMessage(m_hFillMode, CB_ADDSTRING, 0, (LPARAM)"Filled");
@@ -277,6 +281,14 @@ INT_PTR PrefDialog::DlgProc(HWND hWnd, UINT MsgID, WPARAM wParam, LPARAM lParam)
 
             return TRUE;
         }
+
+	case WM_HSCROLL:        // Trackbar scroll
+		if ((HWND)lParam == GetDlgItem(hWnd, IDC_LIGHTMOD))
+		{
+			RenderPreferences::LightMod = (LONG)SendMessage(GetDlgItem(hWnd, IDC_LIGHTMOD), TBM_GETPOS, 0, 0);
+		}
+		break;
+
     case WM_COMMAND:
         {
             switch(LOWORD(wParam))
@@ -331,7 +343,16 @@ INT_PTR PrefDialog::DlgProc(HWND hWnd, UINT MsgID, WPARAM wParam, LPARAM lParam)
                 }
 
                 break;
+			case IDC_LIGHTMOD:
 
+				break;
+			case IDC_FULLBRIGHT:
+				if (HIWORD(wParam) == BN_CLICKED)
+				{
+					RenderPreferences::RenderFullbrightOutsideCells = ((BST_CHECKED == SendMessage(GetDlgItem(hWnd, IDC_FULLBRIGHT), BM_GETCHECK, 0, 0)) ? TRUE : FALSE);
+				}
+
+				break;
             case IDC_NOSLEEP:
                 if (HIWORD(wParam) == BN_CLICKED)
                 {

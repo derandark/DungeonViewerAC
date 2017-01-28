@@ -9,6 +9,7 @@
 #include "Environment.h"
 #include "Render.h"
 #include "PartArray.h"
+#include "Preferences.h"
 
 Vector DungeonScene::camera_pos;
 
@@ -277,10 +278,10 @@ void DungeonScene::Render(double FrameTime)
     Render::SetZFill();
     Render::SetFogState(FALSE);
     // Render::SetFilling(D3DFILL_SOLID);
-    Render::SetLighting(TRUE);
 
     Render::pLightManager->DisableAll();
     Render::SetCulling(D3DCULL_NONE);
+
 
     // Render::SetProjMatrix(m_Camera.GetProjMatrix());
     // Render::SetViewMatrix(m_Camera.GetViewMatrix());
@@ -293,6 +294,9 @@ void DungeonScene::Render(double FrameTime)
 
     if (m_CurrentCell)
     {
+		Render::SetLighting(TRUE);
+		Render::FullBrightOverride = false;
+
         DWORD        CurrentCellIndex = (m_CurrentCell & LandDefs::block_cell_id) - LandDefs::first_envcell_id;
         CEnvCell*    CurrentCell = m_EnvCells[ CurrentCellIndex ];
 
@@ -332,7 +336,20 @@ void DungeonScene::Render(double FrameTime)
     else
     {
         // Render all cells.
-        Render::pLightManager->EnableAll();
+		
+		// Not rendering all lights because performance is really bad in large dungeons until this is optimized.
+
+		if (RenderPreferences::RenderFullbrightOutsideCells)
+		{
+			Render::SetLighting(FALSE);
+			Render::FullBrightOverride = true;
+		}
+		else
+		{
+			Render::pLightManager->EnableAll();
+			Render::SetLighting(TRUE);
+			Render::FullBrightOverride = false;
+		}
 
         for (DWORD i = 0; i < m_EnvCellCount; i++)
         {

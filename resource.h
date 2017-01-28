@@ -40,6 +40,8 @@
 #define IDC_FILLMODE                    1020
 #define IDC_FSAA                        1021
 #define IDC_MULTISAMPLE                 1021
+#define IDC_FULLBRIGHT                  1022
+#define IDC_LIGHTMOD                    1023
 #define ID_FILE_EXIT                    40002
 #define ID_FILE_PREFERENCES             40003
 #define ID_SHOWDEBUG                    40004
@@ -66,7 +68,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        114
 #define _APS_NEXT_COMMAND_VALUE         40036
-#define _APS_NEXT_CONTROL_VALUE         1021
+#define _APS_NEXT_CONTROL_VALUE         1024
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

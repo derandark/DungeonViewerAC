@@ -210,6 +210,8 @@ public:
 
     static D3DPRESENT_PARAMETERS m_PParams;
 
+	static bool FullBrightOverride;
+
 private:
 
     static void DrawPoly(CPolygon *Poly);

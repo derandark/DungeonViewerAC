@@ -12,9 +12,11 @@ public:
     static DWORD RenderHud;
     static DWORD RenderObjects;
     static DWORD RenderLights;
+	static DWORD RenderFullbrightOutsideCells;
     static DWORD NoSleep;
     static DWORD FillMode;
     static DWORD MultiSample;
+	static DWORD LightMod;
 };
 
 // Why is this a bunch of static stuff? Change to a namespace or encapsulate it in a real class dummy

@@ -6,9 +6,11 @@
 DWORD RenderPreferences::RenderHud;
 DWORD RenderPreferences::RenderObjects;
 DWORD RenderPreferences::RenderLights;
+DWORD RenderPreferences::RenderFullbrightOutsideCells;
 DWORD RenderPreferences::NoSleep;
 DWORD RenderPreferences::FillMode;
 DWORD RenderPreferences::MultiSample;
+DWORD RenderPreferences::LightMod;
 
 void RenderPreferences::LoadFromRegistry(void)
 {
@@ -21,6 +23,9 @@ void RenderPreferences::LoadFromRegistry(void)
 	if (!Preferences::GetRegistryInt("RenderLights", &RenderLights))
 		RenderLights = TRUE;
 
+	if (!Preferences::GetRegistryInt("RenderFullbrightOutsideCells", &RenderFullbrightOutsideCells))
+		RenderFullbrightOutsideCells = TRUE;
+
 	if (!Preferences::GetRegistryInt("NoSleep", &NoSleep))
 		NoSleep = FALSE;
 
@@ -29,6 +34,9 @@ void RenderPreferences::LoadFromRegistry(void)
 
 	if (!Preferences::GetRegistryInt("MultiSample", &MultiSample))
 		MultiSample = D3DMULTISAMPLE_NONE;
+
+	if (!Preferences::GetRegistryInt("LightMod", &LightMod))
+		LightMod = 0;
 }
 
 void RenderPreferences::SaveToRegistry(void)
@@ -36,9 +44,11 @@ void RenderPreferences::SaveToRegistry(void)
 	Preferences::SetRegistryInt("RenderHud", RenderHud);
 	Preferences::SetRegistryInt("RenderObjects", RenderObjects);
 	Preferences::SetRegistryInt("RenderLights", RenderLights);
+	Preferences::SetRegistryInt("RenderFullbrightOutsideCells", RenderFullbrightOutsideCells);
 	Preferences::SetRegistryInt("NoSleep", NoSleep);
 	Preferences::SetRegistryInt("FillMode", FillMode);
 	Preferences::SetRegistryInt("MultiSample", MultiSample);
+	Preferences::SetRegistryInt("LightMod", LightMod);
 }
 
 BOOL Preferences::CheckIfFirstRun()

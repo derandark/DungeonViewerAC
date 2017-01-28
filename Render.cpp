@@ -93,6 +93,8 @@ PrimaryHUD        Render::SharedHUD;
 LPD3DXLINE        Render::DXLine = NULL;
 LPD3DXFONT        Render::DXFont = NULL;
 
+bool Render::FullBrightOverride = false;
+
 BOOL Render::InitDirect3D()
 {
     g_pD3D = Direct3DCreate9(D3D_SDK_VERSION);
@@ -191,7 +193,7 @@ void Render::SetupD3DDevice()
     DefaultD3DMaterial.Diffuse = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);
     DefaultD3DMaterial.Ambient = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);
     DefaultD3DMaterial.Specular = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);
-    DefaultD3DMaterial.Emissive = D3DXCOLOR(0.0f, 0.0f, 0.0f, 0.0f);
+	DefaultD3DMaterial.Emissive = D3DXCOLOR(0.0f, 0.0f, 0.0f, 0.0f);
     DefaultD3DMaterial.Power = 10.0f;
     g_pD3DDevice->SetMaterial(&DefaultD3DMaterial);
 
@@ -480,20 +482,35 @@ void Render::SetLighting(BOOL Enabled)
 
 void Render::SetMaterial(CMaterial *pMaterial)
 {
+	/*
     if (CurrMaterial == pMaterial)
         return;
     else
         CurrMaterial = pMaterial;
+		*/
+
+	D3DMATERIAL9 *pD3DMaterial = (pMaterial != NULL) ? &pMaterial->m_D3DMaterial : &DefaultD3DMaterial;
+
+	if (!RenderPreferences::RenderLights || (Render::FullBrightOverride && RenderPreferences::RenderFullbrightOutsideCells))
+	{
+		// Make the material full brightness instead.
+		D3DMATERIAL9 FullbrightMat;
+		FullbrightMat = *pD3DMaterial;
+		FullbrightMat.Emissive = D3DXCOLOR(1.0f, 1.0f, 1.0f, 0.0f);
+		g_pD3DDevice->SetMaterial(&FullbrightMat);
+	}
+	else
+	{
+		g_pD3DDevice->SetMaterial(pD3DMaterial);
+	}
 
     if (pMaterial)
     {
-        g_pD3DDevice->SetMaterial(&pMaterial->m_D3DMaterial);
         CurrMaterialAlphaBlend = pMaterial->m_bTranslucent;
     }
     else
-    {
-        g_pD3DDevice->SetMaterial(&DefaultD3DMaterial);
-        CurrMaterialAlphaBlend = FALSE;
+    {        
+		CurrMaterialAlphaBlend = FALSE;
     }
 }
 
@@ -946,11 +963,13 @@ int Render::DrawMesh(CGfxObj *Obj, Position *ObjPos, BOOL bObjBuilding)
             float depth;
 
             // highlighting
+			/*
             if (GfxObjUnderSelectionRay(Obj, &depth))
             {
                 UnderRay = TRUE;
                 retval = 3;
             }
+			*/
             //
 
             // UnderRay = FALSE;
@@ -1857,7 +1876,7 @@ void LightManager::EnableAllInCell(DWORD Cell)
 
 void LightManager::EnableLight(LightData *Light)
 {
-    if (!RenderPreferences::RenderLights)
+    if (!RenderPreferences::RenderLights || (Render::FullBrightOverride && RenderPreferences::RenderFullbrightOutsideCells))
         return;
 
     if (m_EnabledLights >= MAX_ACTIVE_LIGHTS)
@@ -1882,7 +1901,7 @@ void LightManager::EnableLight(LightData *Light)
     d3dlight9->Phi            = D3DX_PI;
     d3dlight9->Theta        = D3DX_PI / 2;
     d3dlight9->Direction    = D3DXVECTOR3(0.0, 0.0, 0.0);
-    d3dlight9->Range        = Light->m_LightObj->m_LightInfo->m_54;
+    d3dlight9->Range        = Light->m_LightObj->m_LightInfo->m_54 * (1.0 + (RenderPreferences::LightMod / 20.0));
     // d3dlight9->Ambient        = D3DXCOLOR(Random::RollDice(0.0, 1.0), Random::RollDice(0.0, 1.0), Random::RollDice(0.0, 1.0), 1.0);
     d3dlight9->Ambient        = D3DXCOLOR(1.0, 1.0, 1.0, 1.0);
 

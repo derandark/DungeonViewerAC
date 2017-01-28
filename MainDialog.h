@@ -6,8 +6,8 @@
 #define DEF_BACKGROUND_COLOR 0x00000000UL
 #define DEF_WINDOW_WIDTH 1200 // 800
 #define DEF_WINDOW_HEIGHT 920 // 620
-#define DEF_CLASS_NAME "DungeonBuilder"
-#define DEF_WINDOW_NAME "Dungeon Builder"
+#define DEF_CLASS_NAME "DungeonViewer"
+#define DEF_WINDOW_NAME "Dungeon Viewer"
 
 class MainDialog
 {
