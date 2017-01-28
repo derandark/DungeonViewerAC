@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{95D3769F-FECA-437A-B3CE-8E072CD7299B}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>shlwapi.lib;comctl32.lib;comdlg32.lib;dxguid.lib;version.lib;d3d9.lib;winmm.lib;d3dx9.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)DungeonViewer.exe</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(OutDir)ObjectRenderV3.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>shlwapi.lib;comctl32.lib;comdlg32.lib;dxguid.lib;version.lib;d3dx9.lib;d3d9.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)DungeonViewer.exe</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="AnimHooks.cpp" />
+    <ClCompile Include="BSPData.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CreditsDialog.cpp" />
+    <ClCompile Include="DATDisk.cpp" />
+    <ClCompile Include="DebugDialog.cpp" />
+    <ClCompile Include="DungeonMapScene.cpp" />
+    <ClCompile Include="DungeonProfiles.cpp" />
+    <ClCompile Include="DungeonScene.cpp" />
+    <ClCompile Include="EnvCell.cpp" />
+    <ClCompile Include="Environment.cpp" />
+    <ClCompile Include="Frame.cpp" />
+    <ClCompile Include="GameSky.cpp" />
+    <ClCompile Include="GameTime.cpp" />
+    <ClCompile Include="GetDXVersion.cpp" />
+    <ClCompile Include="GfxObj.cpp" />
+    <ClCompile Include="GfxObjScene.cpp" />
+    <ClCompile Include="Globals.cpp" />
+    <ClCompile Include="HUDControls.cpp" />
+    <ClCompile Include="LandBlock.cpp" />
+    <ClCompile Include="LandBlockInfo.cpp" />
+    <ClCompile Include="LandBlockStruct.cpp" />
+    <ClCompile Include="LandCell.cpp" />
+    <ClCompile Include="LandDefs.cpp" />
+    <ClCompile Include="LandScape.cpp" />
+    <ClCompile Include="LandScapeScene.cpp" />
+    <ClCompile Include="ListSlider.cpp" />
+    <ClCompile Include="MainDialog.cpp" />
+    <ClCompile Include="Material.cpp" />
+    <ClCompile Include="MathLib.cpp" />
+    <ClCompile Include="ModelScene.cpp" />
+    <ClCompile Include="Movement.cpp" />
+    <ClCompile Include="ObjCache.cpp" />
+    <ClCompile Include="ObjCell.cpp" />
+    <ClCompile Include="PackObj.cpp" />
+    <ClCompile Include="Palette.cpp" />
+    <ClCompile Include="PartArray.cpp" />
+    <ClCompile Include="PartCell.cpp" />
+    <ClCompile Include="Particles.cpp" />
+    <ClCompile Include="Physics.cpp" />
+    <ClCompile Include="PhysicsObj.cpp" />
+    <ClCompile Include="PhysicsObjScene.cpp" />
+    <ClCompile Include="PhysicsPart.cpp" />
+    <ClCompile Include="Polygon.cpp" />
+    <ClCompile Include="PrefDialog.cpp" />
+    <ClCompile Include="Preferences.cpp" />
+    <ClCompile Include="PString.cpp" />
+    <ClCompile Include="Random.cpp" />
+    <ClCompile Include="RegionDesc.cpp" />
+    <ClCompile Include="Render.cpp" />
+    <ClCompile Include="RenderHUD.cpp" />
+    <ClCompile Include="RenderScene.cpp" />
+    <ClCompile Include="Scripts.cpp" />
+    <ClCompile Include="SDDialog.cpp" />
+    <ClCompile Include="Setup.cpp" />
+    <ClCompile Include="SetupScene.cpp" />
+    <ClCompile Include="SortCell.cpp" />
+    <ClCompile Include="StdAfx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Surface.cpp" />
+    <ClCompile Include="SurfaceScene.cpp" />
+    <ClCompile Include="TestRoutines.cpp" />
+    <ClCompile Include="TestScene.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Vertex.cpp" />
+    <ClCompile Include="WinMain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CreditsDialog.h" />
+    <ClInclude Include="DungeonProfiles.h" />
+    <ClInclude Include="Animation.h" />
+    <ClInclude Include="AnimHooks.h" />
+    <ClInclude Include="BSPData.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="DArray.h" />
+    <ClInclude Include="DATDisk.h" />
+    <ClInclude Include="DebugDialog.h" />
+    <ClInclude Include="DLListBase.h" />
+    <ClInclude Include="DungeonMapScene.h" />
+    <ClInclude Include="DungeonScene.h" />
+    <ClInclude Include="EnvCell.h" />
+    <ClInclude Include="Environment.h" />
+    <ClInclude Include="FPSTracker.h" />
+    <ClInclude Include="Frame.h" />
+    <ClInclude Include="GameSky.h" />
+    <ClInclude Include="GameTime.h" />
+    <ClInclude Include="GetDXVersion.h" />
+    <ClInclude Include="GfxObj.h" />
+    <ClInclude Include="GfxObjScene.h" />
+    <ClInclude Include="Globals.h" />
+    <ClInclude Include="HashData.h" />
+    <ClInclude Include="HUDControls.h" />
+    <ClInclude Include="LandBlock.h" />
+    <ClInclude Include="LandBlockInfo.h" />
+    <ClInclude Include="LandBlockStruct.h" />
+    <ClInclude Include="LandCell.h" />
+    <ClInclude Include="LandDefs.h" />
+    <ClInclude Include="LandScape.h" />
+    <ClInclude Include="LandScapeScene.h" />
+    <ClInclude Include="ListSlider.h" />
+    <ClInclude Include="MainDialog.h" />
+    <ClInclude Include="Material.h" />
+    <ClInclude Include="MathLib.h" />
+    <ClInclude Include="ModelScene.h" />
+    <ClInclude Include="Movement.h" />
+    <ClInclude Include="ObjCache.h" />
+    <ClInclude Include="ObjCell.h" />
+    <ClInclude Include="PackObj.h" />
+    <ClInclude Include="Palette.h" />
+    <ClInclude Include="PartArray.h" />
+    <ClInclude Include="PartCell.h" />
+    <ClInclude Include="Particles.h" />
+    <ClInclude Include="Physics.h" />
+    <ClInclude Include="PhysicsObj.h" />
+    <ClInclude Include="PhysicsObjScene.h" />
+    <ClInclude Include="PhysicsPart.h" />
+    <ClInclude Include="Polygon.h" />
+    <ClInclude Include="PrefDialog.h" />
+    <ClInclude Include="Preferences.h" />
+    <ClInclude Include="PString.h" />
+    <ClInclude Include="Random.h" />
+    <ClInclude Include="RegionDesc.h" />
+    <ClInclude Include="Render.h" />
+    <ClInclude Include="RenderHUD.h" />
+    <ClInclude Include="RenderScene.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="SArray.h" />
+    <ClInclude Include="Scripts.h" />
+    <ClInclude Include="SDDialog.h" />
+    <ClInclude Include="Setup.h" />
+    <ClInclude Include="SetupScene.h" />
+    <ClInclude Include="SmartArray.h" />
+    <ClInclude Include="SortCell.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="Surface.h" />
+    <ClInclude Include="TestRoutines.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="Vertex.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="client.ico" />
+    <None Include="dvpic.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DungeonViewer.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

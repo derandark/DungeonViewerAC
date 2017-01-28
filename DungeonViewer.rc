@@ -1,0 +1,302 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,1,0,0
+ PRODUCTVERSION 1,1,0,0
+ FILEFLAGSMASK 0x17L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "Pea"
+            VALUE "FileDescription", "Dungeon Viewer"
+            VALUE "FileVersion", "1.1.0.0"
+            VALUE "InternalName", "Dungeon Viewer"
+            VALUE "LegalCopyright", "Copyright (C) 2017"
+            VALUE "OriginalFilename", "DungeonViewer.exe"
+            VALUE "ProductName", "Dungeon Viewer"
+            VALUE "ProductVersion", "1.1.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PREFERENCES DIALOGEX 0, 0, 268, 186
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Preferences"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,54,162,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,162,162,50,14
+    LTEXT           "Note: You must restart for .DAT changes to take affect.",IDC_STATIC,36,66,192,12
+    EDITTEXT        IDC_PORTALDATPATH,12,18,192,12,ES_AUTOHSCROLL | ES_READONLY | WS_DISABLED
+    LTEXT           "Portal.DAT file:",IDC_STATIC,12,6,150,8
+    EDITTEXT        IDC_CELLDATPATH,12,48,192,12,ES_AUTOHSCROLL | ES_READONLY | WS_DISABLED
+    LTEXT           "Cell.DAT file:",IDC_STATIC,12,36,150,8
+    PUSHBUTTON      "Browse",IDC_BROWSEPORTAL,204,18,54,12,BS_CENTER | WS_DISABLED
+    PUSHBUTTON      "Browse",IDC_BROWSECELL,204,48,54,12,WS_DISABLED
+    EDITTEXT        IDC_TCEDIT,144,84,54,12,ES_AUTOHSCROLL | ES_READONLY
+    RTEXT           "Text Color:",IDC_STATIC,90,84,48,12
+    PUSHBUTTON      "Choose",IDC_CHOOSETC,198,84,42,12
+    EDITTEXT        IDC_FCEDIT,144,102,54,12,ES_AUTOHSCROLL | ES_READONLY
+    RTEXT           "Fill Color:",IDC_STATIC,90,102,48,12
+    PUSHBUTTON      "Choose",IDC_CHOOSEFC,198,102,42,12
+    CONTROL         "Render Stats",IDC_RENDERSTATS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,80,60,12
+    CONTROL         "Render Objects",IDC_RENDEROBJECTS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,92,66,12
+    CONTROL         "Render Lights",IDC_RENDERLIGHTS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,104,60,12
+    CONTROL         "No Sleep",IDC_NOSLEEP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,120,60,12
+    COMBOBOX        IDC_FILLMODE,144,120,84,52,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    RTEXT           "Fill Mode:",IDC_STATIC,90,120,48,12
+    RTEXT           "Multisample:",IDC_STATIC,90,138,48,12
+    COMBOBOX        IDC_MULTISAMPLE,144,138,84,158,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_DEBUG DIALOGEX 0, 0, 271, 210
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CLIENTEDGE
+CAPTION "Debug Output"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,6,192,66,14
+    PUSHBUTTON      "Save to File",IDC_SAVETOFILE,102,192,66,14
+    EDITTEXT        IDC_OUTPUT,7,7,257,179,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | WS_VSCROLL | WS_HSCROLL,WS_EX_STATICEDGE
+    PUSHBUTTON      "Clear",IDC_CLEAR,198,192,66,14
+END
+
+IDD_SELECTDUNGEON DIALOGEX 0, 0, 304, 234
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Select Dungeon"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "View",IDC_VIEWDUNGEON,90,210,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,156,210,50,14
+    LISTBOX         IDC_DUNGEONLIST,6,6,288,174,LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_BLOCKID,6,186,66,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_BLOCKNAME,78,186,138,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Set",IDC_SETNAME,216,186,36,12
+END
+
+IDD_CREDITS DIALOGEX 0, 0, 337, 199
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Dungeon Viewer Credits"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,276,168,50,14
+    CONTROL         IDC_BROWSECELL,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE | WS_BORDER,7,7,321,137
+    LTEXT           "Dungeon Viewer was engineered by Sean Hunczak. Most work was done prior to 2004. This software has been updated for ToD compatibility.\n\nEmail: sean.hunczak@gmail.com",IDC_STATIC,12,150,234,42
+END
+
+IDD_SELECTDUNGEONSPLASH DIALOGEX 0, 0, 242, 39
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Please wait"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CTEXT           "Generating a list of dungeons",IDC_STATIC,48,6,156,9
+    CONTROL         "",IDC_PROGRESS,"msctls_progress32",PBS_SMOOTH | WS_BORDER,7,22,228,6
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MAINICON            ICON                    "client.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDM_MAINMENU MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "View &Debug",                 ID_FILE_VIEWDEBUG
+        MENUITEM "&Preferences",                ID_FILE_PREFERENCES
+        MENUITEM "E&xit",                       ID_FILE_EXIT
+    END
+    POPUP "&Dungeon"
+    BEGIN
+        MENUITEM "&View Dungeon",               ID_VIEW_DUNGEON
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Credits",                    ID_HELP_CREDITS
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_PREFERENCES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 261
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 179
+    END
+
+    IDD_DEBUG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 264
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 203
+    END
+
+    IDD_SELECTDUNGEON, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 297
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 227
+    END
+
+    IDD_CREDITS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 330
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 192
+    END
+
+    IDD_SELECTDUNGEONSPLASH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 235
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 32
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDA_HOTKEYS ACCELERATORS
+BEGIN
+    "T",            ID_RUNTEST,             VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_TAKESCREENSHOT,      VIRTKEY, CONTROL, NOINVERT
+    "D",            ID_VIEWDEBUG,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_CREDITS             BITMAP                  "dvpic.bmp"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_CREDITS AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_PREFERENCES AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
