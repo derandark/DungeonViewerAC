@@ -1,4 +1,4 @@
-# DungeonViewerAC
+# Dungeon Viewer
 A Dungeon Viewer for Asheron's Call
 
 # Summary
