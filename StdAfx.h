@@ -18,6 +18,7 @@
 #include <set>
 #include <tchar.h>
 #include <Shlwapi.h>
+#include <assert.h>
 
 #define INITGUID
 #include <dxdiag.h>
