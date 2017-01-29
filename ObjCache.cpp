@@ -311,7 +311,9 @@ DBObj *ObjCache::Get(DWORD ID)
 
             if (pObject->UnPack(&PackData, File.Length))
             {
+				pObject->m_Key = ID;
                 // DEBUGOUT("Added object %08X(Memory@%08X) to cache.\r\n", ID, pObject);
+
                 m_Objects.add(pObject);
             }
             else
